@@ -1,0 +1,28 @@
+%h1 New Bookmark
+:javascript
+  $(function() {
+    $('#bookmark_tags').focus();
+  });
+= form_for(@bookmark) do |f|
+  .field.input-text
+    = f.label :address
+    = f.text_field :address, :value => params[:address], :size => 65
+  .field.input-text
+    = f.label :title
+    = f.text_field :title, :value => params[:title], :size => 65
+  .field.input-text
+    = f.label :description
+    = f.text_field :description, :value => params[:description], :size => 65
+  .field_tags.input-text
+    = f.label :tag_list
+    = f.text_field :tag_list, :size => 65
+  .field
+    %span= f.label :private
+    %span= f.check_box :private
+  .field
+    %span= f.label(:is_archived, 'archive url?')
+    %span= f.check_box :is_archived
+  = f.hidden_field :is_popup, :value => 1
+  = f.hidden_field :user_id, :value => session[:user_id]
+  .actions
+    = f.submit

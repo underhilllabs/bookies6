@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Bkmark.me: Social Bookmarking!
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    = render 'shared/includes'
+    = yield :head
+  %body
+    = render 'shared/header'
+    .container
+      - flash.each do |name, msg|
+        .row
+          %div{:class => "span6 alert alert-#{name.to_s == "notice" ? "success" : "error"}"}
+            %a.close{"data-dismiss" => "alert"} x
+            = msg
+      .row.main-wrapper.justify-content-center
+        = yield
+    Page Rendered in #{sprintf('%.3f', (Time.now.usec - @start_time).abs / 1000000.0)} seconds

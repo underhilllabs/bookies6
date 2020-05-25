@@ -1,0 +1,9 @@
+.main-wrapper 
+  .h2= "Bookmarks from #{@user.username&.capitalize}"
+
+  - @bookmarks.each do |b|
+    = render 'bookmarks/bookmark', b: b
+
+.flickr_pagination
+  .page_info
+    = paginate @bookmarks 

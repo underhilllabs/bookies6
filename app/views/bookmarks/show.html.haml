@@ -1,0 +1,21 @@
+%h1= @bookmark.title
+:javascript
+  $(function() {
+    if (window.name == "Bkmark.me Bookmarks") {
+      window.close();
+    }
+  });
+.messages-wrapper
+  - flash.each do |name, msg|
+    = content_tag :div, msg, :id => "flash_#{name}"
+  = yield
+.bookmark-desc
+  %a{:href => "#{@bookmark.url}"}= @bookmark.title
+.bookmark-details
+  .bookmark-desc
+    = @bookmark.desc
+  .bookmark-tags
+    tags:  #{@bookmark.tag_list.to_a.join(", ")}
+  - if @bookmark.is_archived?
+    .bookmark-archive
+      %a{:href => "/archive/#{@bookmark.id}.html"} View Archive

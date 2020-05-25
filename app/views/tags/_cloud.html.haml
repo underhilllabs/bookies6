@@ -1,0 +1,7 @@
+%h3 Look at all these Tags!
+%hr/
+- @cloud_tags.each do |name,count|
+  %div
+    %a{:href => "/tags/name/#{"#{name}"}"}
+      = "#{name}"
+    = " (#{count})"

@@ -1,0 +1,29 @@
+%h2
+  Tagged: #{@name}
+.messages-wrapper
+  - flash.each do |name, msg|
+    = content_tag :div, msg, :id => "flash_#{name}"
+  = yield
+%p
+.main-wrapper
+  - @bookmarks.each do |b|
+    .bookmark-wrapper
+      .bookmark-title
+        %a{:href => "#{b.url}"}= b.title
+      .bookmark-desc
+        = b.desc
+      .bookmark-tags
+        - b.tag_list.each do |t|
+          %a{:href => "/tags/name/#{t}"}= t
+      .bookmark-details
+        %span.bookmark-created= nice_date_form(b.created_at)
+        - if b.user_id == session[:user_id]
+          %span.bookmark-ops
+            %span.bookmark-edit
+              = link_to "Edit", edit_bookmark_path(b)
+            %span.bookmark-delete
+              %a{:href => "/bookmarks/#{b.id}/delete"} Delete
+  .flickr_pagination
+    %div{:clas => "page_info"}
+      = page_entries_info @bookmarks
+    = will_paginate @bookmarks, :container => false

@@ -1,0 +1,7 @@
+%h1
+  Popular Tags from #{@user.username}!
+- @tags.each do |t|
+  %div
+    %a{:href => "tags/name/#{"#{t.name}"}"}
+      = "#{t.name}"
+    = " (#{t.taggings_count})"

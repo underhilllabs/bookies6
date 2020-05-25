@@ -1,0 +1,22 @@
+= form_for(@bookmark) do |f|
+  .field
+    = f.label :address
+    = f.text_field :address, :size => 60
+  .field
+    = f.label :title
+    = f.text_field :title, :size => 60
+  .field
+    = f.label :description
+    = f.text_field :description, :size => 60
+  .field_tags
+    = f.label :tags
+    = f.text_field :tag_list, :size => 60
+  .field
+    %span= f.label :private
+    %span= f.check_box :private
+  .field
+    %span= f.label(:is_archived, 'archive url?')
+    %span= f.check_box :is_archived
+  = f.hidden_field :user_id, :value => session[:user_id]
+  .actions
+    = f.submit

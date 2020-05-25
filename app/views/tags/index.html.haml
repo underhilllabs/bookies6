@@ -1,0 +1,9 @@
+.main-wrapper
+  .h1 All The Tags!
+  - @tags.each do |t|
+    .tag-wrapper
+      = link_to t.name, t
+
+.flickr_pagination
+  .page_info
+    = paginate @tags 

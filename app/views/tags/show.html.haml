@@ -1,0 +1,9 @@
+.main-wrapper 
+  .h2= "Tag: #{@tag_name}"
+
+  - @bookmarks.each do |b|
+    = render 'bookmarks/bookmark', b: b
+
+.flickr_pagination
+  .page_info
+    = paginate @bookmarks 
