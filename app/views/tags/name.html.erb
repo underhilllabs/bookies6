@@ -1,0 +1,48 @@
+<h2>Tagged: <%= @name %></h2>
+<div class="messages-wrapper">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <%= yield %>
+</div>
+
+
+<p />
+<div class="main-wrapper">
+
+ <% 
+  @bookmarks.each do |b|
+ %>
+ <div class="bookmark-wrapper">
+  <div class="bookmark-title"><a href="<%= b.url %>"><%= b.title %></a></div>
+  <div class="bookmark-desc">
+    <%= b.desc %>
+  </div>
+  <div class="bookmark-tags">
+    <% b.tag_list.each do |t| %>
+      <a href="/tags/name/<%= t %>"><%= t %></a>
+    <% end %>
+  </div>
+  <div class="bookmark-details">
+    <span class="bookmark-created"><%= nice_date_form(b.created_at) %></span>
+    <% if b.user_id == session[:user_id] %>
+      <span class="bookmark-ops">
+        <span class="bookmark-edit"> <%= link_to "Edit", edit_bookmark_path(b) %> </span>
+        <span class="bookmark-delete"><a href="/bookmarks/<%= b.id %>/delete">Delete</a></span>
+      </span>
+    <% end %>
+  </div>
+ </div>
+ <% 
+   end
+ %>
+
+<div class="flickr_pagination">
+  <div clas="page_info">
+    <%= page_entries_info @bookmarks %>
+  </div>
+  <%= will_paginate @bookmarks, :container => false %>
+</div>
+
+
+</div>

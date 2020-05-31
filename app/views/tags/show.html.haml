@@ -1,5 +1,5 @@
 .main-wrapper 
-  .h2= "Tag: #{@tag_name}"
+  .h2= "Tag: #{@tag.name}"
 
   - @bookmarks.each do |b|
     = render 'bookmarks/bookmark', b: b
