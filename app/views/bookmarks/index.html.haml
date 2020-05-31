@@ -1,7 +1,5 @@
 - content_for :head, auto_discovery_link_tag(:rss, bookmarks_url(format: "rss"))
 .main-wrapper
-  .jumbotron
-    Welcome, Visitor!
   - @bookmarks.each do |b|
   - # this will make the number of bookmarks on page less than expected amount
   - next if b.private == true and b.user_id != session[:user_id]

@@ -1,21 +1,20 @@
-.navbar.navbar-default.navbar-static-top
+.navbar.navbar-default.navbar-expand-md
   .container
     %a.navbar-brand{:href => "/"} Bookmarks
-    .navbar-collapse.collapse.navbar-responsive-collapse
+    .navbar-collapse.collapse.navbar-responsive-collapse.show.justify-content-around
       %ul.nav.navbar-nav
-        - if session[:user_id]
-          %li= link_to "My Bookmarks", "/bookmarks/user/#{session[:user_id]}"
+        - if current_user
+          %li= link_to "My Bookmarks", user_bookmarks_path(current_user)
         %li= link_to "Users", users_path
         %li= link_to "Tags", tags_path
-        - if session[:user_id]
+        - if current_user
           %li= link_to "Add a Bookmark", "/bookmarks/new"
       %ul.nav.navbar-nav.navbar-right
         - if current_user
           %li
-            = image_tag(avatar_url_from_id(session[:user_id],40), :size => '40x40')
+            =# image_tag(avatar_url_from_id(session[:user_id],40), :size => '40x40')
           %li
-          %li
-            %a{:href => "/users/#{session[:user_id]}"}= session[:username]
+          %li= link_to "#{current_user&.username}", current_user
           %li= link_to "Logout", "/user/sign_out", method: "delete"
         - else
           %li
