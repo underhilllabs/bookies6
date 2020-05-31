@@ -1,0 +1,186 @@
+// Place all the styles related to the Bookmark controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar-default {
+  background: #f8f8f8;
+  border-color: #e7e7e7;
+  a {
+    color: #777
+  }
+}
+.bookmark-wrapper {
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  .bookmark-title {
+    font-size: larger;
+    line-height: 20px;
+  }
+  .bookmark-tags {
+    a {
+      padding-right: 0.35em;
+      color: #CC4900;
+    }
+  }
+  .bookmark-updated {
+    background-color: #eee;
+    padding: 0.05em 0.4em 0.2em 0em;
+  }
+}
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+body {
+  background: #efefef;
+  font-size: 16px;
+}
+
+.main-wrapper {
+  padding-top: 1rem;
+  width: 100%;
+  padding: 1rem .75rem 1rem;
+}
+
+
+//$h2-font-size: 1.5  * $base-font-size;
+//$h3-font-size: 1.17 * $base-font-size;
+//$h4-font-size: 1    * $base-font-size;
+//$h5-font-size: 0.83 * $base-font-size;
+//$h6-font-size: 0.75 * $base-font-size;
+//$times-new-roman: "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
+//$times:Times, "Times New Roman", Georgia, "DejaVu Serif", serif; 
+//$georgia: Georgia, "Times New Roman", "DejaVu Serif", serif;
+//$verdana:Verdana, Tahoma, "DejaVu Sans", sans-serif;
+//$tahoma:Tahoma, Verdana, "DejaVu Sans", sans-serif;
+//$helvetica:Helvetica, Arial, "Nimbus Sans L", sans-serif;
+//$arial:Arial, Helvetica, "Nimbus Sans L", sans-serif;
+//$lucinda: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;                                             
+//$neue:"Helvetica Neue",Helvetica,Arial,sans-serif;   
+//$header-color: #300A24;
+//$salmon: #ffdcdc;
+//$burnt-orange: #CC4900;
+//$header-bgcolor: darken(#f4ff6f,40%);
+//$header-color: adjust_hue($header-bgcolor, -180);
+//$border-color: adjust_hue($header-color, -10);
+//
+//$main-color: #efefef;
+//
+//body {
+//   $font-family: $helvetica;
+//   font-size: $base-font-size;
+//   background: $main-color;
+//   xxx-padding-top: 60px;
+//   
+//}
+//
+//body div.row {
+//}
+//h1, h2, h3, h4 {
+//  font-family: $neue;
+//}                                                                                                                                           
+//body, caption, th, td, input, textarea, select, option, legend, fieldset {
+//  font-family: $arial;
+//}                                                                                                                                           
+//.bookmark-wrapper {
+//  a {
+//    color: #343434;
+//  }
+//  padding-bottom: 1em;
+//  padding-top: 1em;
+//  border-bottom: 1px #777 dashed;
+//  .bookmark-title {
+//    font-size: $h3-font-size;
+//    line-height: $base-line-height;
+//  }
+//  .bookmark-tags {
+//    font-size: $h5-font-size;
+//    a {
+//      padding-right: 0.35em;
+//      color: $burnt-orange;
+//    }
+//  }
+//  .bookmark-updated {
+//    background-color: #eee;
+//    padding: 0.05em 0.4em 0.2em 0.4em;
+//  }
+//   .bookmark-details {
+//      font-size: $h5-font-size;
+//   }
+//   .bookmark-desc {
+//      font-size: $h5-font-size;
+//   }
+//   .bookmark-ops {
+//      a {
+//         padding-left: 0.7em;
+//         color: #555;
+//         text-decoration: none;
+//         &:hover {
+//            text-decoration: underline;
+//         }
+//      }
+//   }
+//}
+//.private {
+//   /* border-left: 2px red solid; */
+//   background: $salmon;
+//   .bookmark-updated {
+//      background-color: $salmon; /**/
+//      padding-left: 0px;
+//   }
+//}
+//form.new_bookmark {
+//   input {
+//      width: auto;
+//   }
+//}
+//
+//.main-content {
+//   margin-top: 1em;
+//   width: 70%;
+//   background: #eee;
+//   padding: 1em;
+//   margin-left: 2em;
+//   margin-right: 2em;
+//   header {
+//      p {
+//         font-family: $neue;
+//         font-size: $h1-font-size;
+//      }
+//   }
+//}
+//
+//.login-signin {
+//   margin-top: 2.5em;
+//}
+//.user-div {
+//   padding: 1em 0em 1em 0em;
+//   border-bottom: 1px dotted #555;
+//}
+//
+//.navbar {
+//   li {
+//      img {
+//         padding-top: 0.2em;
+//         /* @include border-radius(3px); */
+//      }
+//   }
+//   .navbar-search {
+//      color: white;
+//   }
+//}
+//
+//div.bookmarklet {
+//  a {
+//     text-decoration: none;
+//     &:hover {
+//        text-decoration: none;
+//     }
+//  }
+//  font-size: 90%;
+//  div.form-group {
+//    margin-bottom: 0.6em;
+//  }
+//  margin-top: -1em;
+//}
