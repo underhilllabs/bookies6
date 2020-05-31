@@ -9,11 +9,11 @@
   - flash.each do |name, msg|
     = content_tag :div, msg, :id => "flash_#{name}"
   = yield
-.bookmark-desc
-  %a{:href => "#{@bookmark.url}"}= @bookmark.title
+.bookmark-description
+  %a{:href => "#{@bookmark.address}"}= @bookmark.title
 .bookmark-details
-  .bookmark-desc
-    = @bookmark.desc
+  .bookmark-description
+    = @bookmark.description
   .bookmark-tags
     tags:  #{@bookmark.tag_list.to_a.join(", ")}
   - if @bookmark.is_archived?

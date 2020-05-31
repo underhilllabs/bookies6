@@ -1,4 +1,4 @@
-= form_for(@bookmark) do |f|
+= simple_form_for(@bookmark) do |f|
   .field
     = f.label :address
     = f.text_field :address, :size => 60
@@ -17,6 +17,6 @@
   .field
     %span= f.label(:is_archived, 'archive url?')
     %span= f.check_box :is_archived
-  = f.hidden_field :user_id, :value => session[:user_id]
+  = f.hidden_field :user_id, :value => current_user.id
   .actions
     = f.submit

@@ -4,7 +4,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = Bookmark.all.includes(:user, :tags).order(updated_at: :desc).page(params[:page])
   end
 
   # GET /bookmarks/1
@@ -24,10 +24,12 @@ class BookmarksController < ApplicationController
   # POST /bookmarks
   # POST /bookmarks.json
   def create
-    @bookmark = Bookmark.new(bookmark_params)
+    @bookmark = Bookmark.find_or_initialize_by(user_id: bookmark_params[:user_id], address: bookmark_params[:address] ).tap do |b|
+                  b.update(bookmark_params)
+                end
 
     respond_to do |format|
-      if @bookmark.save
+      if @bookmark
         format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
         format.json { render :show, status: :created, location: @bookmark }
       else
@@ -69,6 +71,6 @@ class BookmarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bookmark_params
-      params.require(:bookmark).permit(:url, :hashed_url, :user_id, :desc, :title, :private, :is_archived, :archive_url)
+      params.require(:bookmark).permit(:address, :hashed_url, :user_id, :description, :title, :private, :is_archived, :archive_url, :tag_list)
     end
 end

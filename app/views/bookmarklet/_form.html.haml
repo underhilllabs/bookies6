@@ -23,6 +23,6 @@
     %span= f.label(:is_archived, 'archive url?')
     %span= f.check_box :is_archived
   = f.hidden_field :is_popup, :value => 1
-  = f.hidden_field :user_id, :value => session[:user_id]
+  = f.hidden_field :user_id, value: "#{current_user.id}"
   .actions
     = f.submit
