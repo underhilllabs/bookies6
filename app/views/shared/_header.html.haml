@@ -1,21 +1,25 @@
-.navbar.navbar-default.navbar-expand-md
+.navbar.navbar-default.navbar-expand-lg.navbar-light
   .container
     %a.navbar-brand{:href => "/"} Bookmarks
+    %button{ class:"navbar-toggler", type:"button", 'data-toggle':"collapse", 'data-target':"#navbarSupportedContent", 'aria-controls':"navbarSupportedContent", 'aria-expanded':"false", 'aria-label':"Toggle navigation"}
+      %span.navbar-toggler-icon
     .navbar-collapse.collapse.navbar-responsive-collapse.show.justify-content-around
-      %ul.nav.navbar-nav
-        - if current_user
-          %li= link_to "My Bookmarks", user_bookmarks_path(current_user)
-        %li= link_to "Users", users_path
-        %li= link_to "Tags", tags_path
-        - if current_user
-          %li= link_to "Add a Bookmark", "/bookmarks/new"
-      %ul.nav.navbar-nav.navbar-right
-        - if current_user
-          %li
-            =# image_tag(avatar_url_from_id(session[:user_id],40), :size => '40x40')
-          %li
-          %li= link_to "#{current_user&.username}", current_user
-          %li= link_to "Logout", "/user/sign_out", method: "delete"
-        - else
-          %li
-            %a{:href => "/users/sign_in"} Sign In
+      .container
+        #navbarSupportedContent.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            - if current_user
+              %li= link_to "My Bookmarks", user_bookmarks_path(current_user)
+            %li= link_to "Users", users_path
+            %li= link_to "Tags", tags_path
+            - if current_user
+              %li= link_to "Add a Bookmark", "/bookmarks/new"
+          %ul.nav.navbar-nav.navbar-right
+            - if current_user
+              %li
+                =# image_tag(avatar_url_from_id(session[:user_id],40), :size => '40x40')
+              %li
+              %li= link_to "#{current_user&.username}", current_user
+              %li= link_to "Logout", "/user/sign_out", method: "delete"
+            - else
+              %li
+                %a{:href => "/users/sign_in"} Sign In
