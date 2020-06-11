@@ -1,4 +1,5 @@
 class Bookmark < ApplicationRecord
+  attr_accessor :is_popup
   before_save :archive_the_url, :hash_url
   belongs_to :user
   acts_as_taggable_on :tags

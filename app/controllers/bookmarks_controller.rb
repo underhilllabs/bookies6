@@ -30,7 +30,7 @@ class BookmarksController < ApplicationController
 
     respond_to do |format|
       if @bookmark
-        format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
+        format.html { redirect_to bookmark_path @bookmark.id, is_popup: @bookmark.is_popup, notice: 'Bookmark was successfully created in bookmarks controller.' }
         format.json { render :show, status: :created, location: @bookmark }
       else
         format.html { render :new }
@@ -71,6 +71,6 @@ class BookmarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bookmark_params
-      params.require(:bookmark).permit(:address, :hashed_url, :user_id, :description, :title, :private, :is_archived, :archive_url, :tag_list)
+      params.require(:bookmark).permit(:address, :hashed_url, :user_id, :description, :title, :private, :is_archived, :archive_url, :tag_list, :is_popup)
     end
 end

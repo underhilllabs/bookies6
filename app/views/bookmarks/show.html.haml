@@ -1,10 +1,4 @@
 %h1= @bookmark.title
-:javascript
-  $(function() {
-    if (window.name == "Bkmark.me Bookmarks") {
-      window.close();
-    }
-  });
 .messages-wrapper
   - flash.each do |name, msg|
     = content_tag :div, msg, :id => "flash_#{name}"
@@ -19,3 +13,7 @@
   - if @bookmark.is_archived?
     .bookmark-archive
       %a{:href => "/archive/#{@bookmark.id}.html"} View Archive
+- if params[:is_popup]
+  .bookmark-closer{'data-controller': "closer"}
+    %button{'data-action': 'load@window->closer#closeme'} close me
+  

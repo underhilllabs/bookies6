@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 import './bootstrap_custom.js'
+import 'controllers'
 
 
 
@@ -16,3 +17,4 @@ import './bootstrap_custom.js'
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
