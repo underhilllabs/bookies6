@@ -24,3 +24,5 @@
           %span.bookmark-delete= link_to("Delete", b, :method => 'Delete', data: {:confirm => "Are you sure you want to delete that?"})
           - if b.is_archived?
             %span.bookmark-archive= link_to "View Archive", bookmark_archive_link(b)
+        - if b.private
+          %span.privacy= "private" if b.private

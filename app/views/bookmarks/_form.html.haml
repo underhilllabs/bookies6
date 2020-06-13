@@ -11,7 +11,7 @@
       = f.text_field :description, :size => 60
     .field_tags.form-group
       = f.label :tags
-      = f.text_field :tag_list, :size => 60
+      = f.text_field :tag_list, :size => 60, value: @bookmark.tag_list.join(", ")
     .field.form-group
       %span= f.label :private
       %span= f.check_box :private
