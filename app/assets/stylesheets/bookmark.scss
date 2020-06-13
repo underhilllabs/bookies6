@@ -10,6 +10,10 @@
   }
 }
 .bookmark-wrapper {
+  padding: 0.5rem;
+  &.private {
+    border: 3px dashed #ff9999;
+  }
   border-bottom: 1px dashed #ccc;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
@@ -26,6 +30,10 @@
   .bookmark-updated {
     background-color: #eee;
     padding: 0.05em 0.4em 0.2em 0em;
+  }
+  span.privacy {
+    background-color: #cc8888;
+    padding: 0.2rem;
   }
 }
 a {
