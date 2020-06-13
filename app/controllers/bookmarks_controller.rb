@@ -10,15 +10,18 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1
   # GET /bookmarks/1.json
   def show
+    authorize @bookmark
   end
 
   # GET /bookmarks/new
   def new
     @bookmark = Bookmark.new
+    authorize @bookmark
   end
 
   # GET /bookmarks/1/edit
   def edit
+    authorize @bookmark
   end
 
   # POST /bookmarks
@@ -27,6 +30,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find_or_initialize_by(user_id: bookmark_params[:user_id], address: bookmark_params[:address] ).tap do |b|
                   b.update(bookmark_params)
                 end
+    authorize @bookmark
 
     respond_to do |format|
       if @bookmark
@@ -42,6 +46,7 @@ class BookmarksController < ApplicationController
   # PATCH/PUT /bookmarks/1
   # PATCH/PUT /bookmarks/1.json
   def update
+    authorize @bookmark
     respond_to do |format|
       if @bookmark.update(bookmark_params)
         format.html { redirect_to @bookmark, notice: 'Bookmark was successfully updated.' }
@@ -56,6 +61,7 @@ class BookmarksController < ApplicationController
   # DELETE /bookmarks/1
   # DELETE /bookmarks/1.json
   def destroy
+    authorize @bookmark
     @bookmark.destroy
     respond_to do |format|
       format.html { redirect_to bookmarks_url, notice: 'Bookmark was successfully destroyed.' }

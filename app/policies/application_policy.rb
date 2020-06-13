@@ -6,6 +6,10 @@ class ApplicationPolicy
     @record = record
   end
 
+  def owner?
+    user == record.user
+  end
+
   def index?
     false
   end
@@ -45,5 +49,6 @@ class ApplicationPolicy
     def resolve
       scope.all
     end
+  
   end
 end

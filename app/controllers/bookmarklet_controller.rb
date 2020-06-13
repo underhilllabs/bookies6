@@ -1,13 +1,18 @@
 class BookmarkletController < ApplicationController
   def new
     @bookmark = Bookmark.new
+    authorize @bookmark
+  end
+
+  def show
+    @bookmark = Bookmark.find(:id)
   end
 
   def create
     @bookmark = Bookmark.find_or_initialize_by(user_id: params[:bookmark][:user_id], address: params[:bookmark][:address] )
     respond_to do |format|
       if @bookmark.update(bookmark_params)
-        format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
+        format.html { redirect_to show_bookmarklet_path @bookmark, notice: 'Bookmark was successfully created.' }
         format.json { render :show, status: :created, location: @bookmark }
       else
         format.html { render :new }

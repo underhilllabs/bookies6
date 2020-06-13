@@ -1,0 +1,2 @@
+class BookmarkletPolicy < BookmarkPolicy
+end
