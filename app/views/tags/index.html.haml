@@ -3,7 +3,7 @@
   .h1 All The Tags!
   - @tags.each do |t|
     .tag-wrapper
-      = link_to "#{t.name} (#{t.taggings_count})", t
+      = link_to "#{t.name} (#{t.taggings_count})", "/tags/name/#{t.name}"
 
 .flickr_pagination
   .page_info
