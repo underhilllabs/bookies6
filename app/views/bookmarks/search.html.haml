@@ -1,0 +1,10 @@
+- content_for :head, auto_discovery_link_tag(:rss, bookmarks_url(format: "rss"))
+.main-wrapper
+  .search-wrapper
+    = render partial: 'search/form'
+  - @bookmarks.each do |b|
+  - next if b.private == true and b.user != current_user
+    = render partial: 'bookmark', locals: { b: b}
+.flickr_pagination
+  %div{:class => "page_info"}
+    = paginate @bookmarks

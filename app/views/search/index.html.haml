@@ -1,9 +1,12 @@
-%h2
+%h4.text-center
   Search results for "#{@keywords}"
+.search-wrapper
+  = render partial: 'form'
 .main-wrapper
   - @bookmarks.each do |b|
-  - # this will make the number of bookmarks on page less than expected amount
-  - next if b.private == true and b.user_id != session[:user_id]
+    // this will make the number of bookmarks on page less than expected amount
+    - next if b.private == true and b.user_id != session[:user_id]
     = render partial: 'bookmarks/bookmark', locals: { b: b}
-  .pagination
-    %div{:clas => "page_info"}
+.flickr_pagination
+  %div{:class => "page_info"}
+    = paginate @bookmarks

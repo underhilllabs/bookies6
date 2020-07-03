@@ -13,6 +13,8 @@
             %li= link_to "Tags", tags_path
             - if current_user
               %li= link_to "Add a Bookmark", "/bookmarks/new"
+            %form{action: "search", method: :get}
+              %input{name: "q", "placeholder": "Search Bookmarks" }
           %ul.nav.navbar-nav.navbar-right
             - if current_user
               %li
