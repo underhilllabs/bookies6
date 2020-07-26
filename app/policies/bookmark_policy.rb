@@ -39,7 +39,7 @@ class BookmarkPolicy < ApplicationPolicy
   end
 
   def owner?
-    record.user == user
+    user && record.user == user
   end
 
   def owner_or_public?
@@ -47,6 +47,6 @@ class BookmarkPolicy < ApplicationPolicy
   end
 
   def owner_or_admin?
-    owner || user&.admin?
+    owner? || user&.admin?
   end
 end
