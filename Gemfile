@@ -36,7 +36,7 @@ gem "ruby-readability", :require => 'readability'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'pry-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -45,6 +45,10 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'capistrano', "~> 3.1", require: false
+  gem 'capistrano-rails', "~> 1.3", require: false
+  gem 'capistrano-passenger'
+  gem 'capistrano-rbenv', "~> 2.1", require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 end
 
