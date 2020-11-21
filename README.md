@@ -1,24 +1,29 @@
-# README
+# Rails Version
+6.0
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Install the application locally
 
-Things you may want to cover:
+## create a credentials file
 
-* Ruby version
+Rails 6 creates a credentials file for each environment
 
-* System dependencies
+`EDITOR=vim rails credentials:edit -e development`
 
-* Configuration
+- add the database credentials
+ - dev_db
+ - dev_db_user
+ - dev_db_password
 
-* Database creation
+## load database schema
 
-* Database initialization
+`rails db:schema:load`
 
-* How to run the test suite
+## run rails server
 
-* Services (job queues, cache servers, search engines, etc.)
+`rails server`
 
-* Deployment instructions
+# Run tests
 
-* ...
+`bundle exec rspec`
+
+
