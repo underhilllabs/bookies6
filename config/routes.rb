@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :bookmarks
-  resources :bookmarklet, only: [:new, :create]
+  get "search" => "search#index", as: "search"
+  resources :bookmarklet, only: [:new, :create, :show]
   
   get "tags/name/:name" => "tags#show_name", as: "tags_name"
   devise_for :users
@@ -9,4 +10,6 @@ Rails.application.routes.draw do
   end
   resources :tags, only: [:show, :index]
   root to: "bookmarks#index"
+
+  post "api/posts/add.json" => "bookmarks#add_bookmark"
 end
