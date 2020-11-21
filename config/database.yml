@@ -10,8 +10,11 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  host: localhost
+  adapter: postgresql
+  database: <%= Rails.application.credentials.DEV_DB %>
+  username: <%= Rails.application.credentials.DEV_DB_USER %>
+  password: <%= Rails.application.credentials.DEV_DB_PASSWORD %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,5 +24,8 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  host: localhost
+  adapter: postgresql
+  database: <%= Rails.application.credentials.DEV_DB %>
+  username: <%= Rails.application.credentials.DEV_DB_USER %>
+  password: <%= Rails.application.credentials.DEV_DB_PASSWORD %>

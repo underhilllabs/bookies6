@@ -267,6 +267,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     sshkit (1.21.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -326,6 +327,7 @@ DEPENDENCIES
   sass-rails (~> 5)
   selenium-webdriver
   simple_form
+  sqlite3
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
