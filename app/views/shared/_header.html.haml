@@ -7,12 +7,11 @@
       .container
         #navbarSupportedContent.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            - if current_user
-              %li= link_to "My Bookmarks", user_bookmarks_path(current_user)
-            %li= link_to "Users", users_path
+            //- if current_user
+            //  %li= link_to "My Bookmarks", user_bookmarks_path(current_user)
+            = show_my_bookmarks_maybe(current_user)
             %li= link_to "Tags", tags_path
-            - if current_user
-              %li= link_to "Add a Bookmark", "/bookmarks/new"
+            = show_add_bookmark_maybe(current_user)
             %form{action: "/search", method: :get}
               %input{name: "q", "placeholder": "Search Bookmarks" }
           %ul.nav.navbar-nav.navbar-right

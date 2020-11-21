@@ -1,15 +1,15 @@
 .form-inputs
   = simple_form_for(@bookmark) do |f|
-    .field.form-group
+    .field.input_text.form-group
       = f.label :address
       = f.text_field :address, :size => 60
-    .field.form-group
+    .field.input_text.form-group
       = f.label :title
       = f.text_field :title, :size => 60
-    .field.form-group
+    .field.input_text.form-group
       = f.label :description
       = f.text_field :description, :size => 60
-    .field_tags.form-group
+    .field_tags.input_text.form-group
       = f.label :tags
       = f.text_field :tag_list, :size => 60, value: @bookmark.tag_list.join(", ")
     .field.form-group
