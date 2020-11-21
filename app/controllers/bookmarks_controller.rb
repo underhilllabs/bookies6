@@ -28,14 +28,9 @@ class BookmarksController < ApplicationController
   # POST /api/posts/add.json
   def add_bookmark
     user = User.find_by(api_token: params["token"])
-    puts "found #{user} with api_token #{params['token']}"
-    Rails.logger.info "found #{user&.username} with api_token #{params['token']}"
     @bookmark = Bookmark.find_or_initialize_by(user_id: user.id, address: params[:url] )
     bookmark_params[:address] = params[:url]
     @bookmark.update!(bookmark_params)
-
-    Rails.logger.info "updated #{@bookmark} with api_token #{params['api_token']}"
-    render {}
   end
 
   # POST /bookmarks
