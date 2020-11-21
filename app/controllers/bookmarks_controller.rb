@@ -5,7 +5,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-    @bookmarks = Bookmark.all.includes(:user, :tags).order(updated_at: :desc).page(params[:page])
+    @bookmarks = policy_scope(Bookmark).includes(:user, :tags).order(updated_at: :desc).page(params[:page])
   end
 
   # GET /bookmarks/1

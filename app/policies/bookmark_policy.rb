@@ -1,8 +1,22 @@
 class BookmarkPolicy < ApplicationPolicy
   class Scope < Scope
-    def resolve
-      scope.all
+
+    def initialize(user, scope)
+      @user  = user
+      @scope = scope
     end
+
+    def resolve
+      if user.present?
+        scope.where(user_id: user.id).or(scope.where.not(private: true))
+      else
+        scope.where.not(private: true)
+      end
+    end
+
+    private
+    
+    attr_reader :user, :scope
   end
 
   def index?
