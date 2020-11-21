@@ -2,7 +2,7 @@
 .main-wrapper
   - @bookmarks.each do |b|
   - # this will make the number of bookmarks on page less than expected amount
-  - next if b.private == true and b.user_id != session[:user_id]
+  - next if b.private == true and b.user != current_user
     = render partial: 'bookmark', locals: { b: b}
 .flickr_pagination
   %div{:clas => "page_info"}
