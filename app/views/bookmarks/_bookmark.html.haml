@@ -4,7 +4,7 @@
   .bookmark-desc
     = b.description
   .bookmark-tags
-    - b.tag_list.each do |t|
+    - b.tags.each do |t|
       %a{:href => "/tags/name/#{t}"}= t
   .bookmark-details
     - if b.updated_at != b.created_at
@@ -25,4 +25,4 @@
           - if b.is_archived?
             %span.bookmark-archive= link_to "View Archive", bookmark_archive_link(b)
         - if b.private
-          %span.privacy= "private" if b.private
+          %span.privacy= "private"
