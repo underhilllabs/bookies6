@@ -3,6 +3,9 @@
 
 # Install the application locally
 
+## run bundle
+`bundle install`
+
 ## create a credentials file
 
 Rails 6 creates a credentials file for each environment
@@ -10,9 +13,9 @@ Rails 6 creates a credentials file for each environment
 `EDITOR=vim rails credentials:edit -e development`
 
 - add the database credentials
- - dev_db
- - dev_db_user
- - dev_db_password
+  - DEV_DB
+  - DEV_DB_USER
+  - DEV_DB_PASSWORD
 
 ## load database schema
 
