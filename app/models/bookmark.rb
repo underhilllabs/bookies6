@@ -10,7 +10,7 @@ class Bookmark < ApplicationRecord
   scope :sort_by_updated, -> { order('updated_at DESC') }
   scope :published, -> { where(private: false) }
   scope :my_bookmarks, ->(user_id) { where(user_id: user_id) }
-  # scope :published_or_mine,->(user_id) find_by_sql(.. UNION ..)
+  scope :mine_or_published, ->(user_id) { my_bookmarks(user_id).or(Bookmark.published)}
   scope :unpublished, -> { where(private: true) }
   scope :archived, -> { where(is_archived: true) }
 

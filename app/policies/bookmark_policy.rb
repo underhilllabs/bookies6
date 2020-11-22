@@ -8,9 +8,9 @@ class BookmarkPolicy < ApplicationPolicy
 
     def resolve
       if user.present?
-        scope.where(user_id: user.id).or(scope.where.not(private: true))
+        scope.mine_or_published(user.id)
       else
-        scope.where.not(private: true)
+        scope.published
       end
     end
 
