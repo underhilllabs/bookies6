@@ -34,6 +34,8 @@ class Bookmark < ApplicationRecord
     if is_archived?
       logger.info "DISABLED: Queued the archiving of the url with id: #{id}"
       #Resque.enqueue(BookmarkArchiver, id)
+    else
+      BookmarkArchiver.new(self.id).call
     end
   end
  
