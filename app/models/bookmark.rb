@@ -32,10 +32,7 @@ class Bookmark < ApplicationRecord
   # download and archive the bookmark
   def archive_the_url
     if is_archived?
-      logger.info "DISABLED: Queued the archiving of the url with id: #{id}"
-      #Resque.enqueue(BookmarkArchiver, id)
-    else
-      BookmarkArchiver.new(self.id).call
+      BookmarkArchiveJob.perform_later self.id
     end
   end
  
