@@ -21,8 +21,8 @@
         %span.bookmark-ops
           %span.bookmark-edit
             = link_to "Edit", edit_bookmark_path(b)
-          %span.bookmark-delete= link_to("Delete", b, :method => 'Delete', data: {:confirm => "Are you sure you want to delete that?"})
-          - if b.is_archived?
+          %span.bookmark-delete= link_to "Delete", b, :method => 'Delete', data: {:confirm => "Are you sure you want to delete that?"}
+          - if b.archive_url
             %span.bookmark-archive= link_to "View Archive", bookmark_archive_path(b)
         - if b.private
           %span.privacy= "private"
