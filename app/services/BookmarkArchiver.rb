@@ -2,8 +2,10 @@ require 'open-uri'
 require 'readability'
 
 class BookmarkArchiver
-  def initialize(bookmark_id)
-    @bookmark = Bookmark.find(bookmark_id)
+  def initialize(bookmark)
+    puts "no bookmark" unless bookmark
+    puts "called initialize with bookmark #{bookmark.id} right now"
+    @bookmark = bookmark
   end
 
   def call

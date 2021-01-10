@@ -1,6 +1,7 @@
 class BookmarkArchiveJob < ApplicationJob
 
-  def perform(bookmark_id)
-    BookmarkArchiver.new(bookmark_id).call
+  def perform(bookmark)
+    logger.info "archive job performed om bookmark #{bookmark.id} right now"
+    BookmarkArchiver.new(bookmark).call
   end
 end

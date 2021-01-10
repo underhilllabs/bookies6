@@ -1,6 +1,7 @@
 class Bookmark < ApplicationRecord
   attr_accessor :is_popup
-  before_save :archive_the_url, :hash_url
+  before_save :hash_url
+  after_commit :archive_the_url
   belongs_to :user
   acts_as_taggable_on :tags
 
@@ -31,8 +32,8 @@ class Bookmark < ApplicationRecord
 
   # download and archive the bookmark
   def archive_the_url
-    if is_archived?
-      BookmarkArchiveJob.perform_later self.id
+    if is_archived? && !archive_url
+      BookmarkArchiveJob.perform_later self
     end
   end
  
