@@ -5,6 +5,7 @@ class Bookmark < ApplicationRecord
   belongs_to :user
   acts_as_taggable_on :tags
 
+  delegate :username, to: :user, allow_nil: true
   validates_presence_of :address, :title, :user_id
 
   # Set default order: most recently updated

@@ -16,7 +16,7 @@
       %span.bookmark-created
         Created: #{nice_date_form(b.created_at)}
     %span.bookmark-owner
-      by #{link_to b.user.username, user_bookmarks_path(b.user)}
+      by #{link_to b.username, user_bookmarks_path(b.user)}
       - if b.user == current_user
         %span.bookmark-ops
           %span.bookmark-edit
