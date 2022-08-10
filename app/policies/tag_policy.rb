@@ -1,4 +1,4 @@
-class BookmarkPolicy < ApplicationPolicy
+class TagPolicy < ApplicationPolicy
   class Scope < Scope
 
     def initialize(user, scope)
@@ -20,7 +20,7 @@ class BookmarkPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    user.present?
   end
 
   def show?
