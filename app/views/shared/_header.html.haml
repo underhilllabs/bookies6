@@ -12,7 +12,7 @@
             = show_my_bookmarks_maybe(current_user)
             %li= link_to "Tags", tags_path
             = show_add_bookmark_maybe(current_user)
-            %form{action: "/search", method: :get}
+            %form{action: "/bookmarks/search", method: :get}
               %input{name: "q", "placeholder": "Search Bookmarks" }
           %ul.nav.navbar-nav.navbar-right
             - if current_user

@@ -79,8 +79,10 @@ class BookmarksController < ApplicationController
   end
 
   def search
+    @keywords = params[:q]
     @q = Bookmark.ransack(title_cont: params[:q])
     @bookmarks = @q.result(distinct: true).order(updated_at: :DESC).page(params[:page])
+    authorize @bookmarks
   end
 
   private

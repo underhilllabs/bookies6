@@ -43,6 +43,10 @@ class BookmarkPolicy < ApplicationPolicy
     edit?
   end
 
+  def search?
+    user.present?
+  end
+
   def destroy?
     owner_or_admin?
   end

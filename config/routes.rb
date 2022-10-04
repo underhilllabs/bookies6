@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  get "bookmarks/search" => "bookmarks#search", as: "bookmarks_search"
   resources :bookmarks
-  get "search" => "search#index", as: "search"
   resources :bookmarklet, only: [:new, :create, :show]
   
   get "tags/name/:name" => "tags#show_name", as: "tags_name"
