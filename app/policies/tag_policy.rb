@@ -23,6 +23,10 @@ class TagPolicy < ApplicationPolicy
     user.present?
   end
 
+  def show_name?
+    user.present?
+  end
+
   def show?
     owner_or_public?
   end
