@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Bookies is a Rails 7.0 bookmark management application that allows users to save, organize, and archive web bookmarks. The app supports user authentication, tagging, privacy controls, and automatic content archiving.
+Bookies is a Rails 8.0 bookmark management application that allows users to save, organize, and archive web bookmarks. The app supports user authentication, tagging, privacy controls, and automatic content archiving.
 
 ## Development Commands
 
@@ -64,7 +64,7 @@ rails assets:precompile        # Compile assets for production
 - Uses acts-as-taggable-on for tagging infrastructure
 
 ### Frontend Stack
-- Rails 7.0 with Webpacker
+- Rails 8.0 with Webpacker
 - Bootstrap 4.3.1 for styling
 - Stimulus for JavaScript controllers
 - HAML for view templates
