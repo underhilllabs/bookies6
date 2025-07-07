@@ -1,23 +1,67 @@
-= form_for(@bookmark) do |f|
-  .field.input-text.form-group
-    = f.label :address
-    = f.text_field :address, :value => params[:address], :size => 65
-  .field.input-text.form-group
-    = f.label :title
-    = f.text_field :title, :value => params[:title], :size => 65
-  .field.input-text.form-group
-    = f.label :description
-    = f.text_field :description, :value => params[:description], :size => 65
-  .field_tags.input-text.form-group
-    = f.label :tag_list
-    = f.text_field :tag_list, :size => 65, value: @bookmark.tag_list.join(", ")
-  .field.form-group
-    %span= f.label :private
-    %span= f.check_box :private
-  .field.form-group
-    %span= f.label(:is_archived, 'archive url?')
-    %span= f.check_box :is_archived
-  = f.hidden_field :is_popup, :value => 1
-  = f.hidden_field :user_id, value: "#{current_user.id}"
-  .actions.form-group
-    = f.submit
+.bookmark-form-container.bookmarklet-form
+  .card.shadow-sm
+    .card-header.bg-success.text-white
+      %h5.mb-0
+        %i.fas.fa-external-link-alt.me-2
+        Quick Save Bookmark
+    .card-body
+      = simple_form_for(@bookmark, html: { class: 'bookmark-form' }) do |f|
+        .row
+          .col-12
+            = f.input :address, 
+              label: 'URL', 
+              input_html: { 
+                class: 'form-control form-control-lg', 
+                value: params[:address],
+                readonly: true 
+              },
+              wrapper_html: { class: 'mb-3' }
+        
+        .row
+          .col-12
+            = f.input :title, 
+              input_html: { 
+                class: 'form-control', 
+                value: params[:title] 
+              },
+              wrapper_html: { class: 'mb-3' }
+        
+        .row
+          .col-12
+            = f.input :description, 
+              as: :text,
+              input_html: { 
+                class: 'form-control', 
+                value: params[:description],
+                rows: 2 
+              },
+              wrapper_html: { class: 'mb-3' }
+        
+        .row
+          .col-12
+            = f.input :tag_list, 
+              label: 'Tags',
+              placeholder: 'Add tags separated by commas', 
+              input_html: { 
+                class: 'form-control', 
+                value: @bookmark.tag_list.join(", ") 
+              },
+              wrapper_html: { class: 'mb-3' }
+        
+        .row
+          .col-md-6
+            .form-check.form-switch.mb-2
+              = f.check_box :private, class: 'form-check-input', id: 'bookmarklet_private'
+              = f.label :private, 'Private', class: 'form-check-label'
+          .col-md-6
+            .form-check.form-switch.mb-2
+              = f.check_box :is_archived, class: 'form-check-input', id: 'bookmarklet_archive'
+              = f.label :is_archived, 'Archive', class: 'form-check-label'
+        
+        = f.hidden_field :is_popup, value: 1
+        = f.hidden_field :user_id, value: current_user.id
+        
+        .row
+          .col-12.mt-3
+            .d-grid
+              = f.submit 'Save Bookmark', class: 'btn btn-success btn-lg'
