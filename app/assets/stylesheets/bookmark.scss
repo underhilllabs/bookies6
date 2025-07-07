@@ -2,6 +2,176 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Enhanced Bookmark Form Styling
+.bookmark-form-container {
+  .card {
+    border: 0;
+    border-radius: 12px;
+    
+    .card-header {
+      border-radius: 12px 12px 0 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: 0;
+      padding: 1.25rem 1.5rem;
+      
+      h5 {
+        font-weight: 600;
+        letter-spacing: 0.025em;
+      }
+      
+      .fas {
+        opacity: 0.9;
+      }
+    }
+    
+    .card-body {
+      padding: 2rem 1.5rem;
+      background: #fff;
+    }
+  }
+  
+  .bookmark-form {
+    .form-control {
+      border: 2px solid #e1e5e9;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      
+      &:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        outline: 0;
+      }
+      
+      &.form-control-lg {
+        padding: 1rem 1.25rem;
+        font-size: 1.05rem;
+        font-weight: 500;
+      }
+      
+      // Validation states
+      &.is-invalid {
+        border-color: #e53e3e;
+        box-shadow: 0 0 0 0.2rem rgba(229, 62, 62, 0.25);
+      }
+      
+      &.is-valid {
+        border-color: #38a169;
+        box-shadow: 0 0 0 0.2rem rgba(56, 161, 105, 0.25);
+      }
+    }
+    
+    // Enhanced validation feedback
+    .invalid-feedback {
+      display: block;
+      width: 100%;
+      margin-top: 0.25rem;
+      font-size: 0.8rem;
+      color: #e53e3e;
+      font-weight: 500;
+    }
+    
+    .valid-feedback {
+      display: block;
+      width: 100%;
+      margin-top: 0.25rem;
+      font-size: 0.8rem;
+      color: #38a169;
+      font-weight: 500;
+    }
+    
+    .form-label {
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+    }
+    
+    .form-text {
+      font-size: 0.8rem;
+      color: #718096;
+      margin-top: 0.25rem;
+    }
+    
+    .form-check {
+      .form-check-input {
+        border: 2px solid #cbd5e0;
+        
+        &:checked {
+          background-color: #667eea;
+          border-color: #667eea;
+        }
+        
+        &:focus {
+          box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+      }
+      
+      .form-check-label {
+        font-weight: 500;
+        color: #4a5568;
+        cursor: pointer;
+      }
+    }
+    
+    .btn {
+      border-radius: 8px;
+      font-weight: 600;
+      letter-spacing: 0.025em;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+      
+      &.btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: 0;
+        
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+      }
+      
+      &.btn-secondary {
+        background: #f7fafc;
+        color: #4a5568;
+        border-color: #e2e8f0;
+        
+        &:hover {
+          background: #edf2f7;
+          border-color: #cbd5e0;
+          color: #2d3748;
+        }
+      }
+    }
+  }
+  
+  // Bookmarklet specific styling
+  &.bookmarklet-form {
+    .card-header {
+      background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    }
+    
+    .form-control[readonly] {
+      background-color: #f7fafc;
+      border-color: #e2e8f0;
+      color: #4a5568;
+    }
+    
+    .btn-success {
+      background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+      border: 0;
+      
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(72, 187, 120, 0.4);
+      }
+    }
+  }
+}
+
 .navbar-default {
   background: #f8f8f8;
   border-color: #e7e7e7;

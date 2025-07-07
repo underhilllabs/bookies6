@@ -1,23 +1,59 @@
-.form-inputs
-  = simple_form_for(@bookmark) do |f|
-    .field.input_text.form-group
-      = f.label :address
-      = f.text_field :address, :size => 60
-    .field.input_text.form-group
-      = f.label :title
-      = f.text_field :title, :size => 60
-    .field.input_text.form-group
-      = f.label :description
-      = f.text_field :description, :size => 60
-    .field_tags.input_text.form-group
-      = f.label :tags
-      = f.text_field :tag_list, :size => 60, value: @bookmark.tag_list.join(", ")
-    .field.form-group
-      %span= f.label :private
-      %span= f.check_box :private
-    .field.form-group
-      %span= f.label(:is_archived, 'archive url?')
-      %span= f.check_box :is_archived
-    = f.hidden_field :user_id, value: current_user&.id
-    .actions
-      = f.submit
+.bookmark-form-container
+  .card.shadow-sm
+    .card-header.bg-primary.text-white
+      %h5.mb-0
+        %i.fas.fa-bookmark.me-2
+        = @bookmark.persisted? ? 'Edit Bookmark' : 'New Bookmark'
+    .card-body
+      = simple_form_for(@bookmark, html: { class: 'bookmark-form' }) do |f|
+        .row
+          .col-12
+            = f.input :address, 
+              label: 'URL', 
+              placeholder: 'https://example.com', 
+              input_html: { class: 'form-control form-control-lg' },
+              wrapper_html: { class: 'mb-4' },
+              hint: 'Enter the web address you want to bookmark'
+        
+        .row
+          .col-md-6
+            = f.input :title, 
+              placeholder: 'Enter a descriptive title', 
+              input_html: { class: 'form-control' },
+              wrapper_html: { class: 'mb-3' }
+          .col-md-6
+            = f.input :tag_list, 
+              label: 'Tags',
+              placeholder: 'web, design, tutorial (comma separated)', 
+              input_html: { class: 'form-control', value: @bookmark.tag_list.join(", ") },
+              wrapper_html: { class: 'mb-3' },
+              hint: 'Separate tags with commas'
+        
+        .row
+          .col-12
+            = f.input :description, 
+              as: :text,
+              placeholder: 'Add a description or notes about this bookmark...', 
+              input_html: { class: 'form-control', rows: 3 },
+              wrapper_html: { class: 'mb-4' }
+        
+        .row
+          .col-md-6
+            .form-check.form-switch.mb-3
+              = f.check_box :private, class: 'form-check-input', id: 'bookmark_private'
+              = f.label :private, 'Private Bookmark', class: 'form-check-label'
+              %small.form-text.text-muted Only you can see this bookmark
+          .col-md-6
+            .form-check.form-switch.mb-3
+              = f.check_box :is_archived, class: 'form-check-input', id: 'bookmark_archive'
+              = f.label :is_archived, 'Archive Content', class: 'form-check-label'
+              %small.form-text.text-muted Save a copy of the page content
+        
+        = f.hidden_field :user_id, value: current_user&.id
+        
+        .row
+          .col-12
+            .d-flex.justify-content-between.align-items-center
+              = link_to 'Cancel', bookmarks_path, class: 'btn btn-secondary'
+              = f.submit (@bookmark.persisted? ? 'Update Bookmark' : 'Save Bookmark'), 
+                class: 'btn btn-primary btn-lg px-4'
