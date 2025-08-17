@@ -4,13 +4,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.3.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-# gem 'rails', '~> 6.1'
+#gem 'rails', '~> 6.1'
 gem "rails", "~> 8.0.0"
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem 'ransack'
 gem 'webpacker'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production

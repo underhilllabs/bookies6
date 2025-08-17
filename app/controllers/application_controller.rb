@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
+  include Pundit::Authorization
   before_action :store_user_location!, if: :storable_location?
-
   before_action :set_start_time
-  include Pundit
-
+  
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def set_start_time

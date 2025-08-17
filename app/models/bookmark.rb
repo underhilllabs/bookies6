@@ -31,6 +31,10 @@ class Bookmark < ApplicationRecord
 
   private
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["description", "tag_str", "title"]
+  end
+
   # download and archive the bookmark
   def archive_the_url
     if is_archived? && !archive_url
